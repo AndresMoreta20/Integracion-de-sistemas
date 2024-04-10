@@ -15,11 +15,10 @@ conn.commit()
 # Función para insertar un empleado en la base de datos
 def guardar_empleado():
     cursor.execute("INSERT INTO empleados (nombre, apellido, departamento) VALUES (?, ?, ?)",
-                   (nombre_var.get(), apellido_var.get(), departamento_var.get()))
+                   (nombre_var.get(), apellido_var.get(), departamento_combobox.get()))
     conn.commit()
     nombre_entry.delete(0, tk.END)
     apellido_entry.delete(0, tk.END)
-    departamento_entry.delete(0, tk.END)
     messagebox.showinfo("Guardado", "Empleado guardado con éxito")
 
 # Función para exportar datos a CSV
@@ -43,7 +42,6 @@ root.title("Registro de Empleados")
 # Variables para almacenar los inputs
 nombre_var = tk.StringVar()
 apellido_var = tk.StringVar()
-departamento_var = tk.StringVar()
 
 # Crear y colocar los campos de entrada
 tk.Label(root, text="Nombre").grid(row=0, column=0)
@@ -54,17 +52,21 @@ tk.Label(root, text="Apellido").grid(row=1, column=0)
 apellido_entry = tk.Entry(root, textvariable=apellido_var)
 apellido_entry.grid(row=1, column=1)
 
+# Menú desplegable para el departamento
 tk.Label(root, text="Departamento").grid(row=2, column=0)
-departamento_entry = tk.Entry(root, textvariable=departamento_var)
-departamento_entry.grid(row=2, column=1)
+departamento_combobox = ttk.Combobox(root, 
+                                     values=["Analisis", "Desarrollo", "Auditoria"], 
+                                     state="readonly")
+departamento_combobox.grid(row=2, column=1)
+departamento_combobox.set("Analisis")  # Opción predeterminada
 
 # Botón para guardar empleado
 guardar_btn = ttk.Button(root, text="Guardar", command=guardar_empleado)
-guardar_btn.grid(row=3, column=0)
+guardar_btn.grid(row=3, columnspan=2)
 
 # Botón para exportar a CSV
 exportar_csv_btn = ttk.Button(root, text="Exportar CSV", command=exportar_csv)
-exportar_csv_btn.grid(row=3, column=1)
+exportar_csv_btn.grid(row=4, columnspan=2)
 
 # Ejecutar la ventana
 root.mainloop()

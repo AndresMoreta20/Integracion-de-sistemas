@@ -3,7 +3,19 @@ const csvParser = require("csv-parser");
 const fs = require("fs");
 
 // Crear o abrir una base de datos NeDB
-const db = new Datastore({ filename: "nuevaBaseDeDatos.db", autoload: true });
+const db = new Datastore({ filename: "salarios.db", autoload: true });
+
+// Salarios base por departamento
+const salarios = {
+  Analisis: 301.0,
+  Desarrollo: 302.0,
+  Auditoria: 303.0,
+};
+
+// Función para calcular el salario anual
+function calcularSalarioAnual(salarioMensual) {
+  return salarioMensual * 12.0;
+}
 
 // Función para insertar un empleado en la base de datos NeDB si no existe un duplicado
 function insertarEmpleadoSiNoExiste(empleado) {
@@ -40,9 +52,8 @@ function importarDatosDesdeCsv() {
   fs.createReadStream("empleados.csv")
     .pipe(csvParser())
     .on("data", (row) => {
-      // Actualiza estos nombres para que coincidan con las columnas de tu CSV
       const nombreCompleto = `${row.Nombre} ${row.Apellido}`;
-      const area = row.Departamento; // Cambia 'Departamento' por el nombre real de la columna si es diferente
+      const area = row.Departamento;
 
       if (!row.Nombre || !row.Apellido || !row.Departamento) {
         console.error(
@@ -52,9 +63,15 @@ function importarDatosDesdeCsv() {
         return; // Saltar esta fila si alguno de los campos está indefinido
       }
 
+      // Asignar el salario mensual basado en el área
+      const salarioMensual = salarios[area] || 0; // Use 0 or some default if area is not found
+      const salarioAnual = calcularSalarioAnual(salarioMensual);
+
       const empleado = {
         nombreCompleto,
-        area, // Aquí usamos 'area' como el nuevo término para 'departamento'
+        area, // Usamos 'area' como el nuevo término para 'departamento'
+        salarioMensual,
+        salarioAnual,
         fechaRegistro: new Date(),
       };
       insertarEmpleadoSiNoExiste(empleado);
