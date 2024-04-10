@@ -3,6 +3,9 @@
 
 Este proyecto ofrece una solución completa para la gestión de datos de empleados, utilizando un script de Python para la captura y almacenamiento de datos en una base de datos SQLite, con la capacidad de exportar estos datos a un archivo CSV. Posteriormente, un script de Node.js permite importar estos datos desde el archivo CSV a una base de datos NeDB, almacenándolos en un formato optimizado.
 
+![image](https://github.com/AndresMoreta20/Integracion-de-sistemas/assets/61909582/83739e26-aace-4d59-8372-ecce4fd233e1)
+
+
 ## Características
 
 - Captura de datos de empleados mediante una interfaz gráfica de usuario (GUI) en Python.
