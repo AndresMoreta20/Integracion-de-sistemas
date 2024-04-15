@@ -3,3 +3,7 @@
 {"nombreCompleto":"Jessica Lopez","area":"Auditoria","salarioMensual":303,"salarioAnual":3636,"fechaRegistro":{"$$date":1712726380128},"_id":"iyRNDXy0DCocDL2g"}
 {"nombreCompleto":"Sebastian Andrade","area":"Desarrollo","salarioMensual":302,"salarioAnual":3624,"fechaRegistro":{"$$date":1712726139343},"_id":"sk13qqs2utEIN9oE"}
 {"nombreCompleto":"Andres Moreta","area":"Analisis","salarioMensual":301,"salarioAnual":3612,"fechaRegistro":{"$$date":1712726139343},"_id":"tlL5tOBbeUvwOw12"}
+{"nombreCompleto":"Jane Doe","area":"Desarrollo","salarioMensual":302,"salarioAnual":3624,"fechaRegistro":{"$$date":1712795436562},"_id":"vZOR4MrBJDR9aRJV"}
+{"nombreCompleto":"Jon Doe","area":"Desarrollo","salarioMensual":302,"salarioAnual":3624,"fechaRegistro":{"$$date":1712765458776},"_id":"xbmFppD6hpp7Q5NL"}
+{"nombreCompleto":"Dario V","area":"Analisis","salarioMensual":301,"salarioAnual":3612,"fechaRegistro":{"$$date":1712795556828},"_id":"z3eZc7i1cxy55K6E"}
+{"nombreCompleto":"Angel Moreta","area":"Analisis","salarioMensual":301,"salarioAnual":3612,"fechaRegistro":{"$$date":1712795635862},"_id":"sRt4iVhrZmB0GY4g"}
